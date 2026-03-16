@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Activations.work — Award-Winning Activation Case Studies</title>
+<meta name="description" content="A curated archive of the world's most celebrated brand activation case studies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Libre+Franklin:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;--gold-light:#E8CC7A;--ink:#0D0D0B;--off-white:#F2EFE6;
+  --muted:#7A7870;--border:rgba(201,168,76,0.15);--card-bg:#111110;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--ink);color:var(--off-white);min-height:100vh}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:60px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(13,13,11,0.92);backdrop-filter:blur(16px)}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-link{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-link:hover{color:var(--off-white)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 60px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 30%,rgba(201,168,76,0.07) 0%,transparent 65%);pointer-events:none}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;opacity:0.8}
+.hero-hed{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,8vw,120px);font-weight:700;line-height:0.88;letter-spacing:-0.02em;max-width:900px;margin-bottom:40px}
+.hero-hed em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;font-weight:300;color:var(--muted);max-width:440px;line-height:1.7;margin-bottom:56px}
+.hero-stats{display:flex;gap:48px}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--off-white);line-height:1}
+.hero-stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* ── FILTER BAR ── */
+.filter-bar{padding:0 60px;height:52px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-btn{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:6px 14px;border-radius:20px;border:1px solid rgba(201,168,76,0.2);color:var(--muted);background:none;cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0}
+.filter-btn:hover{border-color:var(--gold);color:var(--off-white)}
+.filter-btn.active{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+/* ── GRID ── */
+.grid-section{padding:60px 60px 100px}
+.grid-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:40px}
+.grid-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold)}
+.grid-count{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.grid-empty{grid-column:1/-1;padding:80px;text-align:center;background:var(--ink)}
+.grid-empty-hed{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--muted);margin-bottom:12px}
+.grid-empty-sub{font-size:13px;color:rgba(122,120,112,0.6)}
+
+/* ── CARD ── */
+.card{background:var(--ink);padding:40px;display:flex;flex-direction:column;gap:0;text-decoration:none;color:inherit;transition:background 0.2s;position:relative;min-height:320px}
+.card:hover{background:#161614}
+.card:hover .card-arrow{opacity:1;transform:translate(3px,-3px)}
+.card-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.card-category{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold)}
+.card-year{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.15em;color:var(--muted)}
+.card-dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.card-campaign{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,32px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;margin-bottom:12px;flex:1}
+.card-campaign em{font-style:italic;color:var(--gold)}
+.card-tagline{font-size:13px;font-weight:300;color:var(--muted);line-height:1.5;margin-bottom:24px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);padding-top:16px;margin-top:auto}
+.card-client{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--off-white)}
+.card-agency{font-size:11px;font-weight:300;color:var(--muted)}
+.card-arrow{font-size:18px;color:var(--gold);opacity:0;transition:all 0.2s;flex-shrink:0}
+
+/* Featured card — spans 2 cols */
+.card.featured{grid-column:span 2;min-height:400px}
+.card.featured .card-campaign{font-size:clamp(36px,4vw,52px)}
+
+/* ── SKELETON LOADER ── */
+.skeleton{background:linear-gradient(90deg,#161614 25%,#1c1c1a 50%,#161614 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-card{background:var(--ink);padding:40px;min-height:320px;display:flex;flex-direction:column;gap:12px}
+.skel-line{border-radius:2px}
+
+/* ── FOOTER ── */
+footer{padding:48px 60px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-wordmark{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);opacity:0.5;text-decoration:none}
+.footer-disc{font-size:11px;color:var(--muted);font-style:italic;max-width:400px}
+
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .hero{padding:60px 24px}
+  .filter-bar{padding:0 24px}
+  .grid-section{padding:40px 24px 80px}
+  .grid{grid-template-columns:1fr}
+  .card.featured{grid-column:span 1}
+  footer{padding:40px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Activations.work</a>
+  <div class="nav-links">
+    <a class="nav-link" href="#archive">Archive</a>
+    <a class="nav-link" href="#about">About</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Validated Creative Archive — Est. 2024</div>
+  <h1 class="hero-hed">The work that<br/><em>already exists.</em></h1>
+  <p class="hero-sub">A curated record of award-winning brand activations. Every idea you've ever had has already been executed — brilliantly.</p>
+  <div class="hero-stats">
+    <div id="stat-count">
+      <div class="hero-stat-num" id="stat-num">—</div>
+      <div class="hero-stat-label">Case Studies</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">Grand Prix</div>
+      <div class="hero-stat-label">Average Award</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">340%</div>
+      <div class="hero-stat-label">Avg. Results Inflation</div>
+    </div>
+  </div>
+</section>
+
+<div class="filter-bar" id="filter-bar">
+  <button class="filter-btn active" data-cat="all">All</button>
+</div>
+
+<section class="grid-section" id="archive">
+  <div class="grid-header">
+    <span class="grid-title">Case Studies</span>
+    <span class="grid-count" id="grid-count"></span>
+  </div>
+  <div class="grid" id="grid">
+    <!-- Skeleton loaders -->
+    <div class="skel-card">
+      <div class="skel-line skeleton" style="height:10px;width:30%"></div>
+      <div class="skel-line skeleton" style="height:32px;width:80%;margin-top:8px"></div>
+      <div class="skel-line skeleton" style="height:32px;width:60%"></div>
+      <div class="skel-line skeleton" style="height:13px;width:90%;margin-top:16px"></div>
+      <div class="skel-line skeleton" style="height:13px;width:70%"></div>
+    </div>
+    <div class="skel-card">
+      <div class="skel-line skeleton" style="height:10px;width:25%"></div>
+      <div class="skel-line skeleton" style="height:32px;width:85%;margin-top:8px"></div>
+      <div class="skel-line skeleton" style="height:32px;width:50%"></div>
+      <div class="skel-line skeleton" style="height:13px;width:95%;margin-top:16px"></div>
+      <div class="skel-line skeleton" style="height:13px;width:60%"></div>
+    </div>
+    <div class="skel-card">
+      <div class="skel-line skeleton" style="height:10px;width:35%"></div>
+      <div class="skel-line skeleton" style="height:32px;width:75%;margin-top:8px"></div>
+      <div class="skel-line skeleton" style="height:32px;width:65%"></div>
+      <div class="skel-line skeleton" style="height:13px;width:88%;margin-top:16px"></div>
+      <div class="skel-line skeleton" style="height:13px;width:75%"></div>
+    </div>
+  </div>
+</section>
+
+<footer id="about">
+  <a class="footer-wordmark" href="/">Activations.work</a>
+  <div class="footer-disc">All case studies are entirely fabricated. Any resemblance to actual award-winning work is both intentional and devastating.</div>
+</footer>
+
+<script>
+const REPO = "Joe-Meier/activations-work";
+let allEntries = [];
+let activeFilter = "all";
+
+function slugToTitle(s) {
+  return s.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+}
+
+function renderCampaign(campaign) {
+  if (!campaign) return "";
+  return campaign.replace(/\*([^*]+)\*/g,"<em>$1</em>");
+}
+
+function buildCard(entry, index) {
+  const featured = index === 0;
+  const url = `/${entry.slug}/`;
+  return `
+    <a class="card${featured?" featured":""}" href="${url}">
+      <div class="card-eyebrow">
+        <span class="card-category">${entry.category||"Experiential"}</span>
+        <span class="card-dot"></span>
+        <span class="card-year">${entry.year||"2024"}</span>
+      </div>
+      <div class="card-campaign">${renderCampaign(entry.campaign)||slugToTitle(entry.slug)}</div>
+      <div class="card-tagline">${entry.tagline||""}</div>
+      <div class="card-footer">
+        <div>
+          <div class="card-client">${entry.client||""}</div>
+          <div class="card-agency">${entry.agency||""}</div>
+        </div>
+        <span class="card-arrow">↗</span>
+      </div>
+    </a>`;
+}
+
+function renderGrid(entries) {
+  const grid = document.getElementById("grid");
+  const count = document.getElementById("grid-count");
+  if (!entries.length) {
+    grid.innerHTML = `<div class="grid-empty">
+      <div class="grid-empty-hed">No case studies yet.</div>
+      <div class="grid-empty-sub">Generate one and hit Publish to see it here.</div>
+    </div>`;
+    count.textContent = "";
+    return;
+  }
+  grid.innerHTML = entries.map((e,i) => buildCard(e,i)).join("");
+  count.textContent = `${entries.length} case stud${entries.length===1?"y":"ies"}`;
+}
+
+function buildFilters(entries) {
+  const cats = ["all", ...new Set(entries.map(e=>e.category||"Experiential").filter(Boolean))];
+  const bar = document.getElementById("filter-bar");
+  bar.innerHTML = cats.map(c=>`
+    <button class="filter-btn${c==="all"?" active":""}" data-cat="${c}">
+      ${c==="all"?"All":c}
+    </button>`).join("");
+  bar.querySelectorAll(".filter-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      activeFilter = btn.dataset.cat;
+      bar.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));
+      const filtered = activeFilter==="all" ? allEntries : allEntries.filter(e=>(e.category||"Experiential")===activeFilter);
+      renderGrid(filtered);
+    });
+  });
+}
+
+async function loadEntries() {
+  try {
+    // Use GitHub raw content to avoid CORS issues
+    const res = await fetch(`https://raw.githubusercontent.com/${REPO}/main/index.json?cb=${Date.now()}`);
+    if (!res.ok) throw new Error("No index yet");
+    allEntries = await res.json();
+    document.getElementById("stat-num").textContent = allEntries.length;
+    buildFilters(allEntries);
+    renderGrid(allEntries);
+  } catch(e) {
+    // No index.json yet — show empty state
+    document.getElementById("stat-num").textContent = "0";
+    renderGrid([]);
+    buildFilters([]);
+  }
+}
+
+loadEntries();
+</script>
+</body>
+</html>
