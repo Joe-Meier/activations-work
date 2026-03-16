@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Born to Be *Wild* — activations.work</title>
+<meta property="og:title" content="Born to Be *Wild*"/>
+<meta property="og:description" content="Business up front. Party out back. Power all around."/>
+<meta name="description" content="Business up front. Party out back. Power all around."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Libre+Franklin:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--gold:#C9A84C;--gold-light:#E8CC7A;--ink:#0D0D0B;--off-white:#F2EFE6;--muted:#7A7870;--border:rgba(201,168,76,0.2)}
+body{font-family:'Barlow',sans-serif;background:var(--ink);color:var(--off-white)}
+.site-header{padding:24px 80px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.site-wordmark{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);opacity:0.7;text-decoration:none}
+.cs-hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px;border-bottom:1px solid var(--border);position:relative}
+.cs-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 80% at 70% 20%,rgba(201,168,76,0.06) 0%,transparent 60%);pointer-events:none}
+.eyebrow{display:flex;align-items:center;gap:24px;margin-bottom:48px}
+.cs-client{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold)}
+.dot{width:4px;height:4px;background:var(--muted);border-radius:50%;display:inline-block}
+.cs-year{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.2em;color:var(--muted)}
+.cs-campaign{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,110px);font-weight:700;line-height:0.88;letter-spacing:-0.02em;max-width:900px;margin-bottom:48px}
+.cs-campaign em{font-style:italic;color:var(--gold)}
+.cs-meta-row{display:flex;gap:60px;flex-wrap:wrap}
+.cs-meta-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.cs-meta-value{font-size:14px;font-weight:300;color:var(--off-white)}
+.cs-section{padding:100px 80px;border-bottom:1px solid rgba(242,239,230,0.06)}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:40px;display:flex;align-items:center;gap:16px}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--border)}
+.cs-body{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,32px);font-weight:300;line-height:1.5;max-width:720px;color:rgba(242,239,230,0.9)}
+.insight-pull{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:700;font-style:italic;line-height:1.1;color:var(--gold);max-width:800px;border-left:2px solid var(--gold);padding-left:40px;margin-top:60px}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:60px}
+.metric-cell{background:var(--ink);padding:48px 40px}
+.metric-number{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,72px);font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.metric-label{font-size:12px;font-weight:300;color:var(--muted);line-height:1.4;max-width:160px}
+.press-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:48px;align-items:start}
+.press-card{background:#fff;border:1px solid #e8e8e8;border-radius:4px;padding:28px;font-family:'Libre Franklin',sans-serif}
+.press-outlet{font-family:'Libre Franklin',sans-serif;font-size:24px;font-weight:900;color:#111;letter-spacing:-0.02em}
+.press-rule{height:1px;background:#e8e8e8;margin:16px 0 14px}
+.press-cat{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#D0021B;margin-bottom:8px}
+.press-hed{font-size:20px;font-weight:900;color:#111;line-height:1.15;margin-bottom:10px;letter-spacing:-0.01em}
+.press-dek{font-size:13px;line-height:1.55;color:#777;margin-bottom:16px;font-weight:400}
+.press-byline{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #e8e8e8;padding-top:12px;font-size:11px;color:#999}
+.press-byline span:first-child{font-weight:600}
+.awards-shelf{display:flex;flex-wrap:wrap;gap:16px;margin-top:48px}
+.award-badge{border:1px solid var(--border);padding:20px 28px;min-width:175px}
+.award-show{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.award-level{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--off-white);line-height:1}
+.award-cat{font-size:11px;font-weight:300;color:var(--muted);line-height:1.4;margin-top:4px}
+.quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.quote-card{padding:48px;border:1px solid var(--border);position:relative}
+.quote-mark{font-family:'Cormorant Garamond',serif;font-size:80px;line-height:0.5;color:var(--gold);opacity:0.18;position:absolute;top:36px;left:40px}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;line-height:1.6;color:rgba(242,239,230,0.85);margin-top:28px}
+.quote-attr{margin-top:24px;border-top:1px solid rgba(242,239,230,0.07);padding-top:16px}
+.quote-name{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)}
+.quote-title{font-size:12px;font-weight:300;color:var(--muted);margin-top:2px}
+.site-footer{padding:60px 80px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);flex-wrap:wrap;gap:24px}
+.site-footer-wordmark{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);opacity:0.5;text-decoration:none}
+.site-footer-disc{font-size:11px;color:var(--muted);font-style:italic;max-width:360px;text-align:center}
+@media(max-width:768px){.cs-hero,.cs-section{padding:40px 24px}.quote-grid{grid-template-columns:1fr}.press-grid{grid-template-columns:1fr}.site-footer{padding:40px 24px}.site-header{padding:20px 24px}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="site-wordmark" href="https://activations.work">Validated Creative Archive</a>
+  <span style="font-size:11px;color:var(--muted);font-family:'Barlow Condensed',sans-serif;letter-spacing:0.15em">2024</span>
+</header>
+<div class="cs-hero">
+  <div class="eyebrow">
+    <span class="cs-client">Kawasaki Motors Corp.</span>
+    <span class="dot"></span>
+    <span class="cs-year">2024</span>
+  </div>
+  <h1 class="cs-campaign">Born to Be <em>Wild</em></h1>
+  <div class="cs-meta-row">
+    <div><div class="cs-meta-label">Agency</div><div class="cs-meta-value">Thunder &amp; Lightning</div></div>
+    <div><div class="cs-meta-label">Summary</div><div class="cs-meta-value" style="max-width:480px">Business up front. Party out back. Power all around.</div></div>
+  </div>
+</div>
+<div class="cs-section"><div class="section-label">The Challenge</div><p class="cs-body">Kawasaki needed to differentiate itself in the crowded dirt bike market while connecting with a younger, more rebellious demographic. Traditional motorcycle advertising wasn't resonating with Gen Z riders who craved authentic experiences over polished campaigns.</p></div>
+<div class="cs-section"><div class="section-label">The Insight</div><p class="cs-body">The mullet isn't just a hairstyle—it's a statement of unapologetic individuality that mirrors the dual nature of dirt bike culture itself.</p><div class="insight-pull">"Every rider has two sides: civilized and untamed"</div></div>
+<div class="cs-section"><div class="section-label">The Idea</div><p class="cs-body">On Super Bowl Sunday, Kawasaki transformed dealerships nationwide into pop-up barbershops, offering complimentary mullet cuts with every dirt bike purchase. This audacious activation celebrated the beautiful contradiction of modern riders—professionals by day, dirt demons by night—while creating an unmissable cultural moment that owned the conversation.</p></div>
+<div class="cs-section">
+  <div class="section-label">The Results</div>
+  <p class="cs-body" style="font-size:clamp(16px,2vw,20px);color:var(--muted)">The campaign exceeded every benchmark. Then broke them.</p>
+  <div class="metrics-grid">
+    <div class="metric-cell">
+      <div class="metric-number">412%</div>
+      <div class="metric-label">increase in brand love scores</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-number">1.2B</div>
+      <div class="metric-label">earned media impressions in 72 hours</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-number">89%</div>
+      <div class="metric-label">of consumers reported feeling something</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-number">#1</div>
+      <div class="metric-label">trending topic across 14 markets</div>
+    </div></div>
+</div>
+<div class="cs-section">
+  <div class="section-label">As Seen In</div>
+  <div class="press-grid">
+    <div class="press-card">
+      <div class="press-outlet">Ad Age</div>
+      <div class="press-rule"></div>
+      <div class="press-cat">Creativity</div>
+      <div class="press-hed">How Kawasaki's Mullet Madness Redefined Super Bowl Sunday Marketing Forever</div>
+      <div class="press-dek">The motorcycle brand's unexpected barbershop activation generated massive cultural conversation and sales.</div>
+      <div class="press-byline"><span>Jessica Chen</span><span>Mar. 4, 2024 · 3 min read</span></div>
+    </div>
+    <div class="press-card">
+      <div class="press-outlet">Adweek</div>
+      <div class="press-rule"></div>
+      <div class="press-cat">Brand Marketing</div>
+      <div class="press-hed">Kawasaki's Mullet Campaign Cuts Through Boring Super Bowl Advertising</div>
+      <div class="press-dek">The brand's irreverent approach to activation marketing proves authenticity trumps polish.</div>
+      <div class="press-byline"><span>Mike Rodriguez</span><span>Mar. 5, 2024 · 4 min read</span></div>
+    </div>
+    <div class="press-card">
+      <div class="press-outlet">Campaign</div>
+      <div class="press-rule"></div>
+      <div class="press-cat">Work</div>
+      <div class="press-hed">Kawasaki Revs Up Cultural Relevance with Mullet Marketing Stunt</div>
+      <div class="press-dek">The Japanese manufacturer's bold Super Bowl activation resonated across demographic lines.</div>
+      <div class="press-byline"><span>Sarah Thompson</span><span>5 March 2024 · 3 min read</span></div>
+    </div>
+    <div class="press-card">
+      <div class="press-outlet">The Drum</div>
+      <div class="press-rule"></div>
+      <div class="press-cat">Creativity</div>
+      <div class="press-hed">Why Kawasaki's Mullet Campaign Is Pure Marketing Genius</div>
+      <div class="press-dek">The brand transformed a retro hairstyle into a symbol of modern rebellion.</div>
+      <div class="press-byline"><span>David Park</span><span>Mar. 6, 2024 · 2 min read</span></div>
+    </div>
+    <div class="press-card">
+      <div class="press-outlet">Fast Company</div>
+      <div class="press-rule"></div>
+      <div class="press-cat">Innovation by Design</div>
+      <div class="press-hed">How Kawasaki Turned Nostalgia Into Next-Level Brand Activation</div>
+      <div class="press-dek">The motorcycle company's mullet strategy points toward a future of fearless experiential marketing.</div>
+      <div class="press-byline"><span>Amanda Foster</span><span>March 7, 2024 · 5 min read</span></div>
+    </div></div>
+</div>
+<div class="cs-section">
+  <div class="section-label">Recognition</div>
+  <div class="awards-shelf">
+    <div class="award-badge">
+      <div class="award-show">CANNES LIONS</div>
+      <div class="award-level">Grand Prix</div>
+      <div class="award-cat">Experience &amp; Activation</div>
+    </div>
+    <div class="award-badge">
+      <div class="award-show">THE ONE SHOW</div>
+      <div class="award-level">Gold Pencil</div>
+      <div class="award-cat">Integrated Campaign</div>
+    </div>
+    <div class="award-badge">
+      <div class="award-show">D&amp;AD</div>
+      <div class="award-level">Black Pencil</div>
+      <div class="award-cat">Creative Effectiveness</div>
+    </div>
+    <div class="award-badge">
+      <div class="award-show">EFFIE AWARDS</div>
+      <div class="award-level">Gold</div>
+      <div class="award-cat">David vs Goliath</div>
+    </div>
+    <div class="award-badge">
+      <div class="award-show">CLIO AWARDS</div>
+      <div class="award-level">Grand Clio</div>
+      <div class="award-cat">Brand Experience</div>
+    </div></div>
+</div>
+<div class="cs-section">
+  <div class="section-label">In Their Own Words</div>
+  <div class="quote-grid">
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">We knew we had to do something that would make people stop scrolling and start talking. This campaign didn't just sell bikes—it sparked a cultural movement that reminded everyone what it means to embrace your wild side.</p>
+      <div class="quote-attr">
+        <div class="quote-name">Patricia Williams</div>
+        <div class="quote-title">CMO, Kawasaki Motors Corp.</div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">The mullet is a paradox—sophisticated yet rebellious, timeless yet temporal. In that contradiction, we found the perfect metaphor for the modern rider's duality and Kawasaki's fearless spirit.</p>
+      <div class="quote-attr">
+        <div class="quote-name">Marcus Reid</div>
+        <div class="quote-title">ECD, Thunder &amp; Lightning</div>
+      </div>
+    </div></div>
+</div>
+<footer class="site-footer">
+  <a class="site-footer-wordmark" href="https://activations.work">Validated Creative Archive</a>
+  <div class="site-footer-disc">This case study is entirely fabricated. Any resemblance to actual award-winning work is both intentional and devastating.</div>
+</footer>
+</body>
+</html>
