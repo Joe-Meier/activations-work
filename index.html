@@ -184,10 +184,17 @@ function renderCampaign(campaign) {
 function buildCard(entry, index) {
   const featured = index === 0;
   const url = `/${entry.slug}/`;
-  const imgStyle = entry.imageUrl ? ` style="background-image:url('${entry.imageUrl}')"` : '';
+  // Use saved imageUrl or generate one on the fly from available data
+  const imgSrc = entry.imageUrl || (() => {
+    const keywords = [entry.client, entry.campaign?.replace(/\*([^*]+)\*/g,'$1'), entry.tagline]
+      .filter(Boolean).join(' ').slice(0, 100);
+    const prompt = encodeURIComponent(`cinematic brand activation photography dramatic moody lighting dark background ${keywords} editorial no text`);
+    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0));
+    return `https://image.pollinations.ai/prompt/${prompt}?width=1200&height=800&seed=${seed}&nologo=true`;
+  })();
   return `
     <a class="card${featured?" featured":""}" href="${url}">
-      ${entry.imageUrl ? `<div class="card-img"${imgStyle}></div>` : ''}
+      <div class="card-img" style="background-image:url('${imgSrc}')"></div>
       <div class="card-eyebrow">
         <span class="card-category">${entry.category||"Experiential"}</span>
         <span class="card-dot"></span>
