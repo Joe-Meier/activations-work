@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,9 +53,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 60px;height:60px;d
 .grid-empty-sub{font-size:13px;color:rgba(122,120,112,0.6)}
 
 /* ── CARD ── */
-.card{background:var(--ink);padding:40px;display:flex;flex-direction:column;gap:0;text-decoration:none;color:inherit;transition:background 0.2s;position:relative;min-height:320px}
+.card{background:var(--ink);padding:40px;display:flex;flex-direction:column;gap:0;text-decoration:none;color:inherit;transition:all 0.2s;position:relative;min-height:320px;overflow:hidden}
+.card-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.18;transition:opacity 0.3s}
+.card:hover .card-img{opacity:0.28}
 .card:hover{background:#161614}
 .card:hover .card-arrow{opacity:1;transform:translate(3px,-3px)}
+.card>*:not(.card-img){position:relative;z-index:1}
 .card-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}
 .card-category{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold)}
 .card-year{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:400;letter-spacing:0.15em;color:var(--muted)}
@@ -180,8 +184,10 @@ function renderCampaign(campaign) {
 function buildCard(entry, index) {
   const featured = index === 0;
   const url = `/${entry.slug}/`;
+  const imgStyle = entry.imageUrl ? ` style="background-image:url('${entry.imageUrl}')"` : '';
   return `
     <a class="card${featured?" featured":""}" href="${url}">
+      ${entry.imageUrl ? `<div class="card-img"${imgStyle}></div>` : ''}
       <div class="card-eyebrow">
         <span class="card-category">${entry.category||"Experiential"}</span>
         <span class="card-dot"></span>
