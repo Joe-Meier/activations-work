@@ -220,12 +220,16 @@ function renderGrid(entries) {
   count.textContent = `${entries.length} case stud${entries.length===1?"y":"ies"}`;
 }
 
+const ALL_CATS = ["All","Experiential","Shopper & Retail","Promo","PR Stunts","Creative Commerce","Social Media","Events & Sponsorship","Design & Packaging","B2B & Trade"];
+
 function buildFilters(entries) {
-  const cats = ["all", ...new Set(entries.map(e=>e.category||"Experiential").filter(Boolean))];
+  // Only show categories that have at least one entry (plus All)
+  const usedCats = new Set(entries.map(e=>e.category||"Experiential"));
+  const cats = ALL_CATS.filter(c => c==="All" || usedCats.has(c));
   const bar = document.getElementById("filter-bar");
   bar.innerHTML = cats.map(c=>`
-    <button class="filter-btn${c==="all"?" active":""}" data-cat="${c}">
-      ${c==="all"?"All":c}
+    <button class="filter-btn${c==="All"?" active":""}" data-cat="${c==="All"?"all":c}">
+      ${c}
     </button>`).join("");
   bar.querySelectorAll(".filter-btn").forEach(btn=>{
     btn.addEventListener("click",()=>{
