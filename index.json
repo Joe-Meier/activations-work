@@ -1,5 +1,16 @@
 [
   {
+    "slug": "project-pure-duck",
+    "client": "Dawn",
+    "campaign": "Project *Pure* Duck",
+    "agency": "Ogilvy Labs",
+    "tagline": "Evolution meets solution",
+    "year": "2022",
+    "category": "PR Stunts",
+    "imageUrl": "https://image.pollinations.ai/prompt/cinematic%20brand%20activation%20campaign%20photography%2C%20dramatic%20moody%20lighting%2C%20dark%20background%2C%20Dawn%20Project%20Pure%20Duck%20Evolution%20meets%20solution%2C%20award%20winning%2C%20no%20text%2C%20editorial?width=1200&height=800&seed=1716&nologo=true",
+    "publishedAt": "2026-03-18T21:40:33.170Z"
+  },
+  {
     "slug": "built-ford-tough-bourbon",
     "client": "Ford",
     "campaign": "Built Ford *Tough* Bourbon",
