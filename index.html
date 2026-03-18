@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Activations.work — Award-Winning Activation Case Studies</title>
 <meta name="description" content="A curated archive of the world's most celebrated brand activation case studies."/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src * data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src *"/>
+<meta name="referrer" content="no-referrer"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Barlow:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Libre+Franklin:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
@@ -186,16 +188,27 @@ function buildCard(entry, index) {
   const url = `/${entry.slug}/`;
   // Use saved imageUrl or generate one on the fly from available data
   const imgSrc = entry.imageUrl || (() => {
-    const keywords = [entry.client, entry.campaign?.replace(/\*([^*]+)\*/g,'$1'), entry.tagline]
-      .filter(Boolean).join(' ').slice(0, 100);
-    const prompt = encodeURIComponent(`cinematic brand activation photography dramatic moody lighting dark background ${keywords} editorial no text`);
-    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0));
-    return `https://image.pollinations.ai/prompt/${prompt}?width=1200&height=800&seed=${seed}&nologo=true`;
+    // Use Unsplash Source — reliable, free, no key needed
+    // Pick keywords from category + client for relevant photos
+    const catKeywords = {
+      "Experiential": "experiential,event,crowd",
+      "PR Stunts": "stunt,viral,street",
+      "Shopper & Retail": "retail,shopping,store",
+      "Creative Commerce": "commerce,product,brand",
+      "Social Media": "social,digital,technology",
+      "Events & Sponsorship": "event,concert,festival",
+      "Design & Packaging": "design,packaging,minimal",
+      "Promo": "promotion,marketing,campaign",
+      "B2B & Trade": "business,corporate,office",
+    };
+    const keywords = catKeywords[entry.category] || "advertising,brand,campaign";
+    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 1000;
+    return `https://source.unsplash.com/1200x800/?${keywords}&sig=${seed}`;
   })();
   return `
     <a class="card${featured?" featured":""}" href="${url}">
       <div class="card-img">
-        <img src="${imgSrc}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.parentElement.style.display='none'"/>
+        <img src="${imgSrc}" crossorigin="anonymous" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.style.display='none'"/>
       </div>
       <div class="card-eyebrow">
         <span class="card-category">${entry.category||"Experiential"}</span>
@@ -232,9 +245,8 @@ function renderGrid(entries) {
 const ALL_CATS = ["All","Experiential","Shopper & Retail","Promo","PR Stunts","Creative Commerce","Social Media","Events & Sponsorship","Design & Packaging","B2B & Trade"];
 
 function buildFilters(entries) {
-  // Only show categories that have at least one entry (plus All)
-  const usedCats = new Set(entries.map(e=>e.category||"Experiential"));
-  const cats = ALL_CATS.filter(c => c==="All" || usedCats.has(c));
+  // Always show all categories
+  const cats = ALL_CATS;
   const bar = document.getElementById("filter-bar");
   bar.innerHTML = cats.map(c=>`
     <button class="filter-btn${c==="All"?" active":""}" data-cat="${c==="All"?"all":c}">
