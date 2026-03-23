@@ -188,22 +188,20 @@ function buildCard(entry, index) {
   const url = `/${entry.slug}/`;
   // Use saved imageUrl or generate one on the fly from available data
   const imgSrc = entry.imageUrl || (() => {
-    // Use Unsplash Source — reliable, free, no key needed
-    // Pick keywords from category + client for relevant photos
     const catKeywords = {
-      "Experiential": "experiential,event,crowd",
-      "PR Stunts": "stunt,viral,street",
-      "Shopper & Retail": "retail,shopping,store",
-      "Creative Commerce": "commerce,product,brand",
-      "Social Media": "social,digital,technology",
-      "Events & Sponsorship": "event,concert,festival",
-      "Design & Packaging": "design,packaging,minimal",
-      "Promo": "promotion,marketing,campaign",
-      "B2B & Trade": "business,corporate,office",
+      "Experiential": "event",
+      "PR Stunts": "street",
+      "Shopper & Retail": "retail",
+      "Creative Commerce": "product",
+      "Social Media": "technology",
+      "Events & Sponsorship": "festival",
+      "Design & Packaging": "design",
+      "Promo": "marketing",
+      "B2B & Trade": "business",
     };
-    const keywords = catKeywords[entry.category] || "advertising,brand,campaign";
-    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 1000;
-    return `https://source.unsplash.com/1200x800/?${keywords}&sig=${seed}`;
+    const keyword = catKeywords[entry.category] || "advertising";
+    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 5000;
+    return `https://loremflickr.com/1200/800/${keyword}?random=${seed}&lock=${seed}`;
   })();
   return `
     <a class="card${featured?" featured":""}" href="${url}">
