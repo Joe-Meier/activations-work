@@ -187,12 +187,7 @@ function buildCard(entry, index) {
   const featured = index === 0;
   const url = `/${entry.slug}/`;
   // Use saved imageUrl or generate one on the fly from available data
-  const imgSrc = entry.imageUrl || (() => {
-    // Use slug, client, or campaign as seed source — whatever's available
-    const seedStr = (entry.slug || entry.client || entry.campaign || String(index) || 'x') + String(index);
-    const seed = Math.abs(seedStr.split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 1000;
-    return `https://picsum.photos/seed/${seed}/1200/800`;
-  })();
+  const imgSrc = entry.imageUrl || `https://picsum.photos/seed/card${index}/1200/800`;
   return `
     <a class="card${featured?" featured":""}" href="${url}">
       <div class="card-img">
