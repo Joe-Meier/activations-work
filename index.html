@@ -188,25 +188,14 @@ function buildCard(entry, index) {
   const url = `/${entry.slug}/`;
   // Use saved imageUrl or generate one on the fly from available data
   const imgSrc = entry.imageUrl || (() => {
-    const catKeywords = {
-      "Experiential": "event",
-      "PR Stunts": "street",
-      "Shopper & Retail": "retail",
-      "Creative Commerce": "product",
-      "Social Media": "technology",
-      "Events & Sponsorship": "festival",
-      "Design & Packaging": "design",
-      "Promo": "marketing",
-      "B2B & Trade": "business",
-    };
-    const keyword = catKeywords[entry.category] || "advertising";
-    const seed = Math.abs((entry.slug||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 5000;
-    return `https://loremflickr.com/1200/800/${keyword}?random=${seed}&lock=${seed}`;
+    // picsum.photos - seeded by slug so each card gets a consistent unique image
+    const seed = Math.abs((entry.slug||'x').split('').reduce((a,c)=>a+c.charCodeAt(0),0)) % 1000;
+    return `https://picsum.photos/seed/${seed}/1200/800`;
   })();
   return `
     <a class="card${featured?" featured":""}" href="${url}">
       <div class="card-img">
-        <img src="${imgSrc}" crossorigin="anonymous" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.style.display='none'"/>
+        <img src="${imgSrc}" style="width:100%;height:100%;object-fit:cover;display:block;" loading="eager" onerror="this.style.display='none'"/>
       </div>
       <div class="card-eyebrow">
         <span class="card-category">${entry.category||"Experiential"}</span>
